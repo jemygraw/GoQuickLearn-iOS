@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="O7v-nC-qLz">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Main Course View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="MainCourseViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Uj-7h-BQ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="XuG-la-RWf"/>
+                    </layoutGuides>
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="kh9-bI-dsS" userLabel="MainCourseView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="redraw" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lvQ-vQ-zbL" userLabel="CourseListTableView">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="dil-QE-g2H"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="gOr-xy-UJU"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="lvQ-vQ-zbL" secondAttribute="trailing" id="0mV-4U-uHS"/>
+                            <constraint firstAttribute="bottom" secondItem="lvQ-vQ-zbL" secondAttribute="bottom" id="g7o-B2-E3O"/>
+                            <constraint firstItem="lvQ-vQ-zbL" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="jH2-cI-Tw2"/>
+                            <constraint firstItem="lvQ-vQ-zbL" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="mM9-Uf-O5d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Mmw-2I-OTQ" colorLabel="IBBuiltInLabel-Yellow">
+                        <nil key="title"/>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="LdI-dP-FDy">
+                            <rect key="frame" x="80" y="7" width="161" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="基础"/>
+                                <segment title="实例"/>
+                            </segments>
+                            <connections>
+                                <action selector="courseCategoryChange:" destination="vXZ-lx-hvc" eventType="valueChanged" id="mP5-38-cCc"/>
+                            </connections>
+                        </segmentedControl>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="courseCategory" destination="LdI-dP-FDy" id="Uh5-S6-Vxi"/>
+                        <outlet property="courseListTableView" destination="lvQ-vQ-zbL" id="hhW-EU-xJ8"/>
+                        <segue destination="6Nm-17-mQZ" kind="push" identifier="ShowCourseContent" id="yCo-oN-H9E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="462" y="54"/>
+        </scene>
+        <!--Course Content View Controller - Title-->
+        <scene sceneID="q9O-q2-guM">
+            <objects>
+                <viewController id="6Nm-17-mQZ" customClass="CourseContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="w9n-Dd-snB"/>
+                        <viewControllerLayoutGuide type="bottom" id="2rd-zA-RD3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uBl-UG-1DF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView autoresizesSubviews="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" allowsInlineMediaPlayback="NO" mediaPlaybackRequiresUserAction="NO" mediaPlaybackAllowsAirPlay="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EQ-7N-Sd0">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="5EQ-7N-Sd0" secondAttribute="bottom" id="37z-eX-Q13"/>
+                            <constraint firstItem="5EQ-7N-Sd0" firstAttribute="leading" secondItem="uBl-UG-1DF" secondAttribute="leading" id="ATq-EH-wgo"/>
+                            <constraint firstAttribute="trailing" secondItem="5EQ-7N-Sd0" secondAttribute="trailing" id="I7e-ee-nik"/>
+                            <constraint firstItem="5EQ-7N-Sd0" firstAttribute="top" secondItem="uBl-UG-1DF" secondAttribute="top" id="pfb-cn-XeI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="qqP-aN-DfP"/>
+                    <connections>
+                        <outlet property="courseContentWebView" destination="5EQ-7N-Sd0" id="owH-J9-wv7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNY-Cm-69q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893" y="56"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="kZU-1T-VfR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="O7v-nC-qLz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lub-8Z-4Cp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="Ziz-og-diy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HqU-NC-7O7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="52"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
