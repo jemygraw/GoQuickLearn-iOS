@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CourseContentViewController : UIViewController
+@property NSInteger courseIndex;
 @property NSString *courseFilePath;
 @property NSString *courseName;
+@property (strong,nonatomic)NSArray *courseList;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *nextChapterBtn;
+
 @end

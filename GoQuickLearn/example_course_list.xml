@@ -300,7 +300,7 @@
     <Content> 
       <Name>Go 写入文件</Name>  
       <Abstract>写文件是必须会的。</Abstract>  
-      <Chapter>go_write_file</Chapter> 
+      <Chapter>go_write_file</Chapter>
     </Content>  
     <Content> 
       <Name>Go Line Filters</Name>  

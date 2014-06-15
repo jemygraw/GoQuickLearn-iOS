@@ -83,8 +83,11 @@
             NSString *chapter=learnContent.chapter;
             NSString *filePath=[[NSBundle mainBundle]pathForResource:chapter ofType:@"html"];
             CourseContentViewController *courseViewController=(CourseContentViewController*)segue.destinationViewController;
+            
             courseViewController.courseFilePath=filePath;
             courseViewController.courseName=learnContent.name;
+            courseViewController.courseIndex=selectedRowIndex;
+            courseViewController.courseList=self.courseList;
         }
     }
 }
